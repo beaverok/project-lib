@@ -37,6 +37,19 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+		 postcss: {
+            options: {
+                map: true,
+                processors: [
+                    require('autoprefixer')({
+                        browsers: ['last 2 versions', 'ie 8', 'ie 9']
+                    })
+                ]
+            },
+            dist: {
+                src: 'build/css/*.css'
+            }
+        },
 		less: {	//обработка less файлов (css препроцессор)
 			dist: {
 				options: {
@@ -97,7 +110,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-pug');
+	grunt.loadNpmTasks('grunt-postcss');
 
     // Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'postcss']);
 };
