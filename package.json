@@ -1,0 +1,24 @@
+{
+  "name": "common-lib",
+  "version": "0.0.1",
+  "description": "My html, css, js lib",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-less": "^0.1.7",
+    "load-grunt-config": "^0.19.2",
+    "pug": "^2.0.0-beta5"
+  },
+  "dependencies": {
+    "jshint-stylish": "^2.2.0",
+    "time-grunt": "^1.4.0"
+  }
+}
