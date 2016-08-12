@@ -1,9 +1,17 @@
-@base-color: #000;
-@base-font: Arial;
-@base-size: 14px;
+@import url('libs/elements.less');
+
+@color: #000;
+@fontFamily: Arial;
+@fontSize: 14px;
 
 body{
-	color: @base-color;
-	font-family: @base-font;
-	font-size: 14px;
+	color: @color;
+	font-family: @fontFamily;
+	font-size: @fontSize;
+	box-shadow: 5px;
+	background-color: @color;
+}
+
+p{
+	.rounded(5px)
 }

@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 		concat: {	// Объединение файлов
             dist: {
 			src: [
-				'js/libs/**/*.js', // Все JS в папке libs
+				'js/plugins/**/*.js', // Все JS в папке plugins
 				'js/common.js'  // Конкретный файл
 				 ],
 			dest: 'build/js/scripts.js',
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         },
 		uglify: {	// Минификация файлов
 			build: {
-				src: 'build/scripts.js',
+				src: 'build/js/scripts.js',
 				dest: 'build/js/scripts.min.js'
 			}
 		},
@@ -55,9 +55,11 @@ module.exports = function(grunt) {
 				options: {
 					style: 'compressed'
 				},
-				files: {
-					'build/css/styles.css': 'css/styles.less'
-				}
+				files: [
+					{
+						'build/css/styles.css': 'css/**/*.less'
+					}
+				]
 			}
 		},
 		pug: {	// обработка jade файлов (html шаблонизатор)
@@ -68,17 +70,26 @@ module.exports = function(grunt) {
 				},
 				files: [
 				  	{
-				  		'build/index.html': 'templates/views/common.jade'
-					},
-					{
-						src: "templates/*.jade",
+						src: "templates/*.pug",
 						dest: "build/",
+						flatten: true,
 						expand: true,
 						ext: ".html"
             		}
 				]
 			  }
     	},
+		copy: {
+			  main: {
+				files: [
+				  // includes files within path 
+				  {expand: true, flatten: true, src: ['js/*jquery*'], dest: 'build/js/', filter: 'isFile'}
+				],
+			  },
+		},
+		clean: {
+			  contents: ['build/*.html'],
+		},
 		watch: {	// отслеживание изменения файлов в реальном времени
 			scripts: {
 				files: ['js/*.js'],
@@ -111,7 +122,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-pug');
 	grunt.loadNpmTasks('grunt-postcss');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 
     // Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'postcss']);
+    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'less', 'postcss', 'imagemin']);
+	grunt.registerTask('html', ['clean', 'pug']);
 };
