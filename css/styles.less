@@ -1,17 +1,12 @@
-@import url('libs/elements.less');
-
-@color: #000;
-@fontFamily: Arial;
-@fontSize: 14px;
-
-body{
-	color: @color;
-	font-family: @fontFamily;
-	font-size: @fontSize;
-	box-shadow: 5px;
-	background-color: @color;
-}
+@import "layout";
 
 p{
-	.rounded(5px)
+  .rounded(5px);
+  text-decoration: underline;
+  .bg-color();
+}
+
+.test{
+  .li-bullet(10px; 5px; 5px);
+  .font-color(#fff);
 }
