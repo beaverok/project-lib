@@ -57,7 +57,7 @@ module.exports = function(grunt) {
 				},
 				files: [
 					{
-						'build/css/styles.css': 'css/styles.less'
+						'build/css/styles.css': 'less/styles.less'
 					}
 				]
 			}
@@ -108,14 +108,14 @@ module.exports = function(grunt) {
 				},
 			},
 			css: {
-				files: ['css/*.less'],
+				files: ['less/*.less'],
 				tasks: ['less'],
 				options: {
 					spawn: false,
 				}
 			},
 			pug: {
-				files: 'app/views/**/*.jade',
+				files: 'app/views/**/*.pug',
 				tasks: ['pug']
 			}
 		}
@@ -136,6 +136,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-uncss');
 
     // Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
-    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'less', 'postcss', 'imagemin', 'pug']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'postcss', 'imagemin', 'pug']);
 	grunt.registerTask('html', ['clean', 'pug']);
 };
