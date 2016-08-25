@@ -31,9 +31,10 @@ module.exports = function(grunt) {
 			dynamic: {
 				files: [{
 					expand: true,
-					cwd: 'images/',
+					flatten: true,
+					cwd: 'img/',
 					src: ['**/*.{png,jpg,gif}'],
-					dest: 'build/images/'
+					dest: 'build/img/'
 				}]
 			}
 		},
@@ -99,6 +100,13 @@ module.exports = function(grunt) {
 				}
 			  }
 		},
+        sprite:{
+            all: {
+                src: 'img/sprite/*.png',
+                dest: 'build/img/spritesheet.png',
+                destCss: 'build/css/sprites.css'
+            }
+        },
 		watch: {	// отслеживание изменения файлов в реальном времени
 			scripts: {
 				files: ['js/*.js'],
@@ -134,6 +142,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-uncss');
+    grunt.loadNpmTasks('grunt-spritesmith');
 
     // Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
     grunt.registerTask('default', ['concat', 'uglify', 'less', 'postcss', 'imagemin', 'pug']);

@@ -1,0 +1,70 @@
+/* миксы для шрифта и текста */
+.font-size(@size: @base-fontSize; @line-height: @base-lineHeight){
+  font-size: @size;
+  line-height: @line-height;
+}
+.font-family(@family: @base-fontFamily){
+  font-family: @family;
+}
+.font-color(@font-color: @base-color){
+  color: @font-color;
+}
+
+.text-decoration(@decor: underline){
+  text-decoration: @decor;
+}
+.no-decor(@decor: none){
+  text-decoration: @decor;
+}
+
+.border(@size: 1px; @style: solid; @color: @base-color){
+  border: @size @style @color;
+}
+.dashed-bottom(@size: 1px; @color: @base-color){
+  border-bottom: @size dashed @color;
+}
+
+.size(@width: auto; @height: auto){
+  width: @width;
+  height: @height;
+}
+
+/* миксы для ссылок */
+.link-color(@color: @link-color){
+  color: @color;
+}
+
+/* миксы для списков */
+.ul-reset(){
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.li-pic(@margin; @padding; @bg){
+  margin: @margin;
+  padding: @padding;
+  .bg();
+  .bg-image(@bg);
+}
+.li-bullet(@margin-right; @width; @height; @bg: @bg-color){
+  &::before{
+    display: inline-block;
+    width: @width;
+    height: @height;
+    margin-right: @margin-right;
+    background-color: @bg;
+    content: '';
+  }
+}
+
+/* фоны */
+.bg(@pos: 0 0; @repeat: no-repeat){
+  background-position: @pos;
+  background-repeat: @repeat;
+}
+.bg-color(@color: @bg-color){
+  background-color: @color;
+}
+.bg-image(@pic){
+  background-image: url(@pic);
+}
