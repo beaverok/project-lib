@@ -1,0 +1,93 @@
+.page-footer {
+  height: 403px;
+  border-top: 7px solid #f0f0f0;
+
+  &__top {
+    //height: 245px;
+  }
+  &__top-inner {
+    .container();
+    min-height: 245px;
+    padding: 46px 0 48px;
+  }
+  &__top-inner::after {
+    .clear();
+  }
+
+  &__contacts {
+    width: 50%;
+    padding-top: 52px;
+    float: left;
+  }
+  &__phone {
+    display: inline-block;
+    width: 230px;
+    .relative();
+    margin-right: 54px;
+    padding-left: 77px;
+    padding-top: 6px;
+    .font-family(@font-reg);
+    .font-size(1.6rem, 24px);
+    color: @color-33;
+    vertical-align: middle;
+  }
+  &__phone:before {
+    display: inline-block;
+    .bg-image("../img/spritesheet.png");
+    .bg();
+    background-position: -229px -149px;
+    width: 59px;
+    height: 59px;
+    .absolute();
+    .pos();
+    content: '';
+  }
+
+  &__mail {
+    display: inline-block;
+    .relative();
+    margin-right: 54px;
+    padding-left: 77px;
+    padding-top: 6px;
+    .font-family(@font-reg);
+    .font-size(1.6rem, 24px);
+    color: @color-33;
+    vertical-align: middle;
+    .transition();
+  }
+  &__mail:before {
+    display: inline-block;
+    .bg-image("../img/spritesheet.png");
+    .bg();
+    background-position: -170px -149px;
+    width: 59px;
+    height: 59px;
+    .absolute();
+    .pos();
+    content: '';
+  }
+  &__mail a {
+    display: block;
+    color: @color-33;
+    .no-decor();
+  }
+  &__mail a:hover {
+    .color-lighten(@color-33);
+  }
+
+  &__bottom {
+    min-height: 158px;
+    .bg-color(@color-32);
+  }
+  &__bottom-inner {
+    .container();
+    padding-top: 54px;
+    .align-center();
+  }
+  &__copyright {
+    .font-family(@font-light);
+    .font-size(1.2rem);
+    color: @white;
+    opacity: 0.5;
+  }
+}

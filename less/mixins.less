@@ -1,12 +1,12 @@
 /* миксы для шрифта и текста */
-.font-size(@size: @base-fontSize; @line-height: @base-lineHeight){
+.font-size(@size: @font-size; @line-height: @line-height){
   font-size: @size;
   line-height: @line-height;
 }
-.font-family(@family: @base-fontFamily){
+.font-family(@family: @font-family){
   font-family: @family;
 }
-.font-color(@font-color: @base-color){
+.font-color(@font-color: @color){
   color: @font-color;
 }
 
@@ -16,22 +16,45 @@
 .no-decor(@decor: none){
   text-decoration: @decor;
 }
+.align-center() {
+  text-align: center;
+}
 
-.border(@size: 1px; @style: solid; @color: @base-color){
+.uppercase() {
+  text-transform: uppercase;
+}
+
+.lowercase() {
+  text-transform: lowercase;
+}
+
+.border(@size: 1px; @style: solid; @color: @color){
   border: @size @style @color;
 }
-.dashed-bottom(@size: 1px; @color: @base-color){
+.dashed-bottom(@size: 1px; @color: @color){
   border-bottom: @size dashed @color;
 }
 
-.size(@width: auto; @height: auto){
-  width: @width;
-  height: @height;
+.color-darken(@color) {
+  color: darken(@color, 15%);
+}
+.color-lighten(@color) {
+  color: lighten(@color, 20%);
 }
 
 /* миксы для ссылок */
 .link-color(@color: @link-color){
   color: @color;
+}
+
+.link-bg(@width: auto; @height: auto; @bg-image; @margin-right: 10px;) {
+  display: inline-block;
+  width: @width;
+  height: @height;
+  .bg();
+  .bg-image(@bg-image);
+  margin-right: @margin-right;
+  content: '';
 }
 
 /* миксы для списков */
@@ -67,4 +90,34 @@
 }
 .bg-image(@pic){
   background-image: url(@pic);
+}
+
+/* разное */
+.container() {
+  width: @container;
+  margin: 0 auto;
+  clear: both;
+}
+
+.size(@width: auto; @height: auto){
+  width: @width;
+  height: @height;
+}
+
+.clear() {
+  clear: both;
+}
+
+/* положение блока */
+.relative() {
+  position: relative;
+}
+
+.absolute() {
+  position: absolute;
+}
+
+.pos(@top: 0; @left: 0) {
+  top: @top;
+  left: @left;
 }

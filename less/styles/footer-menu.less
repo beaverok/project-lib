@@ -1,0 +1,25 @@
+.footer-menu {
+  &__list {
+    .ul-reset();
+    margin: 0 0 29px;
+  }
+  &__item {
+    display: inline-block;
+    margin-right: 40px;
+  }
+  &__item:last-child {
+    margin-right: 0;
+  }
+  &__link {
+    .font-family(@font-light);
+    .font-size(1.2rem, 1.2);
+    color: @white;
+    .no-decor();
+    text-transform: uppercase;
+    opacity: 0.5;
+    .transition();
+  }
+  &__link:hover {
+    .color-darken(@white);
+  }
+}

@@ -1,0 +1,57 @@
+.page-header {
+  height: 98px;
+
+  &__inner {
+    .container();
+  }
+
+  &__logo {
+    display: block;
+    margin-top: 26px;
+    margin-right: 74px;
+    float: left;
+  }
+
+  &__contacts {
+    .size(258px);
+    margin-top: 22px;
+    .align-center;
+    float: right;
+  }
+
+  &__phone {
+    .font-family(@font-light);
+    .font-size(2.9rem, 24px);
+    color: #afafaf;
+  }
+  &__phone span {
+    display: inline-block;
+    margin-left: 8px;
+    .font-family(@font-bold);
+    color: @color-1e;
+  }
+
+  &__feedback-link::before {
+    display: inline-block;
+    .bg-image("../img/spritesheet.png");
+    background-position: -246px -208px;
+    width: 14px;
+    height: 14px;
+    content: '';
+    position: relative;
+    top: 2px;
+    margin-right: 14px;
+  }
+  &__feedback-link {
+    display: inline-block;
+    margin-top: 10px;
+    .font-family(@font-bold);
+    .font-size(1.4rem);
+    color: @color-33;
+    .no-decor();
+    .transition();
+  }
+  &__feedback-link:hover {
+    .color-lighten(@color-33);
+  }
+}

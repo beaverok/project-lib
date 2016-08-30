@@ -1,0 +1,16 @@
+//- вывод одноуровнего меню
+mixin list(ul_cls, li_cls, a_cls, ...items)
+    ul(class=ul_cls)
+        each item in items
+            li(class=li_cls)
+                a(class=a_cls, href="#")= item
+
+//- вывод многоуровнего меню
+mixin multi-list(data)
+    ul
+        each item in data.items
+            li= item.title
+            if item.sublevel
+                +list(item)
+
+//- var data = {"title": "Title text", "items": [{"title": "Item 1"}, {"title": "Item 2", "sublevel": true, "items": [{"title": "Item 2.1"}, {"title": "Item 2.2"}]}, {"title": "Item 3"}] }

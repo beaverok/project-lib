@@ -83,8 +83,10 @@ module.exports = function(grunt) {
 		copy: {
 			  main: {
 				files: [
-				  // includes files within path 
-				  {expand: true, flatten: true, src: ['js/*jquery*'], dest: 'build/js/', filter: 'isFile'}
+				    // copy js files
+				    {expand: true, flatten: true, src: ['js/*jquery*'], dest: 'build/js/', filter: 'isFile'},
+                    // copy fonts
+                    {expand: true, src: ['font/**'], dest: 'build/font/'},
 				],
 			  },
 		},
@@ -145,6 +147,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-spritesmith');
 
     // Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'postcss', 'imagemin', 'pug']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'postcss', 'imagemin', 'pug', 'uncss']);
 	grunt.registerTask('html', ['clean', 'pug']);
 };
